@@ -2,7 +2,7 @@
 set -euo pipefail
 
 OS_FOLDER="$1"          # e.g. ubuntu, alpine, debian
-BASE_IMAGE="$2"           # e.g. ubuntu:jammy, alpine:3.18
+BASE_IMAGE="$2"           # e.g. jammy, 3.18, bookworm
 IMAPSYNC_VER="$3"       # e.g. 2.229
 
 USER="yourdockerhubuser"
