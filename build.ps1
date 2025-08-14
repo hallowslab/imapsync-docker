@@ -26,7 +26,8 @@ param (
     [Parameter(Mandatory)][string]$OsFolder,
     [Parameter(Mandatory)][string]$BaseImage,
     [Parameter(Mandatory)][string]$ImapsyncVersion,
-    [Parameter(Mandatory)][string]$DockerHubUser
+    [Parameter(Mandatory)][string]$DockerHubUser,
+    [string]$Platform = "linux/amd64,linux/arm64"
 )
 
 try {
@@ -37,14 +38,14 @@ try {
     Write-Host "Building image: $imageName" -ForegroundColor Cyan
 
     # docker buildx build `
-    #     --platform linux/amd64,linux/arm64 `
+    #     --platform $Platform `
     #     --push `
     #     --build-arg IMAPSYNC_VERSION=$ImapsyncVersion `
     #     -f "$OsFolder\Dockerfile" `
     #     -t $imageName `
     #     .
     docker buildx build `
-        --platform linux/amd64,linux/arm64 `
+        --platform $Platform `
         --build-arg IMAPSYNC_VERSION=$ImapsyncVersion `
         -f "$OsFolder\$BaseImage\Dockerfile" `
         -t $imageName `
