@@ -28,8 +28,9 @@ See the Tags tab for the full list.
 
 # 🛠 Usage
 
-- Run directly:
-  `docker run --rm -it hallowtechlab/imapsync:debian_bookworm-2.229 --version`
+- Run directly from the shell:
+  `docker run --rm -it hallowtechlab/imapsync:debian_bookworm-2.229 bash`
+  `imapsync ....`
 
 
 - Use in your own Dockerfile:
