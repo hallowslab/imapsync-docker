@@ -30,8 +30,8 @@ See the Tags tab for the full list.
 # 🛠 Usage
 
 - Run directly from the shell:
-  `docker run --rm -it hallowtechlab/imapsync:debian_bookworm-2.229 bash`
-  `imapsync ....`
+  * For an interactive shell session: `docker run --rm -it hallowtechlab/imapsync:debian_bookworm-2.229 bash`
+  * Directly from command line `docker run --rm -it hallowtechlab/imapsync:debian_bookworm-2.229 imapsync ....`
 
 
 - Use in your own Dockerfile:
@@ -53,4 +53,6 @@ See the GitHub repo: https://github.com/hallowslab/imapsync-docker
 
 
 Maintainer: @hallowtechlab
+
 🐳 Built with ❤️ using Docker Buildx
+
