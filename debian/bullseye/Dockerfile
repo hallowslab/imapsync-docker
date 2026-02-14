@@ -6,7 +6,7 @@ RUN apt update && apt install -y apt-file make git cpanminus procps
 RUN apt-file update
 
 # perl deps ─ you can have slightly different lists per codename:
-COPY debian/bullseye/perl_deps.sh /root/perl_deps.sh
+COPY debian/perl_deps.sh /root/perl_deps.sh
 RUN chmod +x /root/perl_deps.sh \
  && /root/perl_deps.sh
 
@@ -18,9 +18,9 @@ RUN /root/build-imapsync.sh "${IMAPSYNC_VERSION}"
 
 FROM debian:bullseye-slim AS final
 
-RUN apt-get clean && apt-get update && apt install -y --no-install-recommends procps
+RUN apt-get clean && apt-get update && apt install -y --no-install-recommends procps libcrypt-openssl-pkcs12-perl
 
-COPY debian/bullseye/perl_deps.sh /root/perl_deps.sh
+COPY debian/perl_deps.sh /root/perl_deps.sh
 RUN chmod +x /root/perl_deps.sh \
  && /root/perl_deps.sh
 
