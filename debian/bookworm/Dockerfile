@@ -6,7 +6,7 @@ RUN apt update && apt install -y apt-file make git cpanminus procps
 RUN apt-file update
 
 # perl deps ─ you can have slightly different lists per codename:
-COPY debian/bookworm/perl_deps.sh /root/perl_deps.sh
+COPY debian/perl_deps.sh /root/perl_deps.sh
 RUN chmod +x /root/perl_deps.sh \
  && /root/perl_deps.sh
 
@@ -20,7 +20,7 @@ FROM debian:bookworm-slim AS final
 
 RUN apt update && apt install -y procps
 
-COPY debian/bookworm/perl_deps.sh /root/perl_deps.sh
+COPY debian/perl_deps.sh /root/perl_deps.sh
 RUN chmod +x /root/perl_deps.sh \
  && /root/perl_deps.sh
 
